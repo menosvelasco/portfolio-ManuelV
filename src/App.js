@@ -4,10 +4,12 @@ import About from "./components/About";
 import SingleOpenSourcePro from "./components/SingleOpenSourcePro";
 import OpenSourceProjects from "./components/OpenSourceProjects";
 import Project from "./components/Project";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <BrowserRouter>
+    <NavBar />
       <Switch>
         <Route component={Home} path='/' exact/>
         <Route component={About} path='/about'/>
