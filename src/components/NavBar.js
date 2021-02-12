@@ -7,28 +7,32 @@ export default function NavBar() {
 			<div className="container mx-auto">
 				<div className="sm:flex justify-around">
 					<nav className="text-white text-3x1 font-bold p-2">
-						<ul className="text-white-800 sm:self-center text-xl border-t sm:border-none">
-							<li className="sm:inline-block">
-								<NavLink to="/" exact className="p-3 hover:text-black">
+						<div className="text-white-800 sm:self-center text-xl border-t sm:border-none">
+							<NavLink to="/"
+								exact
+								activeClassName="text-blue-800 bg-blue-300"
+								className="inline-flex items-center py-3 px-3 my-6 rounded hover:text-black text-4xl font-bold tracking-widest">
 									Home
-								</NavLink>
-							</li>
-							<li className="sm:inline-block">
-								<NavLink to="/OpenSourceProjects" className="p-3 hover:text-black">
-									open-source
-								</NavLink>
-							</li>
-							<li className="sm:inline-block">
-								<NavLink to="/project" className="p-3 hover:text-black">
-									projects
-								</NavLink>
-							</li>
-							<li className="sm:inline-block">
-								<NavLink to="/about" className="p-3 hover:text-black">
-									About me
-								</NavLink>
-							</li>
-						</ul>
+							</NavLink>
+							<NavLink to="/OpenSourceProjects"
+								className="inline-flex items-center py-3 px-3 my-6 hover:text-black text-4xl font-bold tracking-widest"
+								activeClassName="text-blue-800 bg-blue-300"
+								>
+								open-source
+							</NavLink>
+							<NavLink to="/project"
+								className="inline-flex items-center py-3 px-3 my-6 hover:text-black text-4xl font-bold tracking-widest"
+								activeClassName="text-blue-800 bg-blue-300"
+								>
+								projects
+							</NavLink>
+							<NavLink to="/about" 
+								className="inline-flex items-center py-3 px-3 my-6 hover:text-black text-4xl font-bold tracking-widest"
+								activeClassName="text-blue-800 bg-blue-300"
+								>
+								About me
+							</NavLink>
+						</div>
 					</nav>
 				</div>
 			</div>
