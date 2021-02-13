@@ -3,7 +3,7 @@
 @import url("https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css");
 
 .cursive {
-  font-family: "Roboto Mono", cursive;
+  font-family: "Roboto Mono", sans-serif;
   font-weight: 700;
 }
 
@@ -14,5 +14,5 @@
 }
 
 .home-name {
-  font-size: 150px;
+  font-size: 70px;
 }

@@ -12,23 +12,23 @@ export default function NavBar() {
 							<NavLink to="/"
 								exact
 								activeClassName="text-blue-800 bg-blue-300"
-								className="inline-flex items-center py-3 px-3 my-6 rounded hover:text-black text-4xl font-bold tracking-widest">
+								className="inline-flex items-center py-3 px-3 my-2 rounded hover:text-black text-4xl font-bold tracking-widest">
 									Home
 							</NavLink>
 							<NavLink to="/OpenSourceProjects"
-								className="inline-flex items-center py-3 px-3 my-6 hover:text-black text-4xl font-bold tracking-widest"
+								className="inline-flex items-center py-3 px-3 my-2 hover:text-black text-4xl font-bold tracking-widest"
 								activeClassName="text-blue-800 bg-blue-300"
 								>
 								open-source
 							</NavLink>
 							<NavLink to="/project"
-								className="inline-flex items-center py-3 px-3 my-6 hover:text-black text-4xl font-bold tracking-widest"
+								className="inline-flex items-center py-3 px-3 my-2 hover:text-black text-4xl font-bold tracking-widest"
 								activeClassName="text-blue-800 bg-blue-300"
 								>
 								projects
 							</NavLink>
 							<NavLink to="/about" 
-								className="inline-flex items-center py-3 px-3 my-6 hover:text-black text-4xl font-bold tracking-widest"
+								className="inline-flex items-center py-3 px-3 my-2 hover:text-black text-4xl font-bold tracking-widest"
 								activeClassName="text-blue-800 bg-blue-300"
 								>
 								About me
