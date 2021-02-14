@@ -19,19 +19,19 @@ export default function NavBar() {
 								className="inline-flex items-center py-3 px-3 my-2 hover:text-black text-4xl font-bold tracking-widest"
 								activeClassName="text-blue-800 bg-blue-300"
 								>
-								open-source
+								Open-Source
 							</NavLink>
 							<NavLink to="/project"
 								className="inline-flex items-center py-3 px-3 my-2 hover:text-black text-4xl font-bold tracking-widest"
 								activeClassName="text-blue-800 bg-blue-300"
 								>
-								projects
+								Projects
 							</NavLink>
 							<NavLink to="/about" 
 								className="inline-flex items-center py-3 px-3 my-2 hover:text-black text-4xl font-bold tracking-widest"
 								activeClassName="text-blue-800 bg-blue-300"
 								>
-								About me
+								About Me
 							</NavLink>
 						</div>
 					</nav>

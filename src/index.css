@@ -3,8 +3,12 @@
 @import url("https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css");
 
 .cursive {
-  font-family: "Roboto Mono", sans-serif;
+  font-family: "Roboto Mono";
   font-weight: 700;
+}
+.darkened-image { 
+  filter: brightness(80%);
+  opacity: 90;
 }
 
 .prose img {
