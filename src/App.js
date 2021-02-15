@@ -13,8 +13,8 @@ function App() {
       <Switch>
         <Route component={Home} path='/' exact/>
         <Route component={About} path='/about'/>
-        <Route component={SingleOpenSourcePro} path='/singleopenpro/:slug'/>
-        <Route component={OpenSourceProjects} path='/opensourceprojects'/>
+        <Route component={SingleOpenSourcePro} path='/singleOpenPro/:slug'/>
+        <Route component={OpenSourceProjects} path='/openSourceProjects'/>
         <Route component={Project} path='/project'/>
       </Switch>
     </BrowserRouter>
