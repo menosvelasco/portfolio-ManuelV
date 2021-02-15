@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
-import SingleOpenSourcePro from "./components/SingleOpenSourcePro";
 import OpenSourceProjects from "./components/OpenSourceProjects";
 import Project from "./components/Project";
 import NavBar from "./components/NavBar";
@@ -13,7 +12,6 @@ function App() {
       <Switch>
         <Route component={Home} path='/' exact/>
         <Route component={About} path='/about'/>
-        <Route component={SingleOpenSourcePro} path='/singleOpenPro/:slug'/>
         <Route component={OpenSourceProjects} path='/openSourceProjects'/>
         <Route component={Project} path='/project'/>
       </Switch>

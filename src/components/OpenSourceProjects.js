@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 
 export default function OpenSourceProjects() {
@@ -8,14 +7,11 @@ export default function OpenSourceProjects() {
 	useEffect(() => {
 		sanityClient.fetch(`*[_type == "post"]{
 					title,
-					slug,
-					mainImage{
-						asset->{
-							_id,
-							url	
-						},
-						alt
-					}
+					date,
+					description,
+					projectType,
+					link,
+					tags
 				}`
 				)
 				.then((data) => setPost(data))
@@ -23,24 +19,39 @@ export default function OpenSourceProjects() {
 		}, []);
 
 	return(
-		<main className="bg-green-100 min-h-screen p-12">
+		<main className="bg-blue-100 min-h-screen p-12 ">
 			<section className="container mx-auto">
-				<h1 className="text-5xl flex justify-center cursive">Open Source project</h1>
-				<h2 className="text-lg text-gray-600 flex justify-center mb-12">Welcome to my project that I have contributed</h2>
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{postData && postData.map((post, index) =>(
-					<article>
-						<Link to={"/post/" + post.slug.current} key={post.slug.current}>
-						<span className="block h-64 relative rounded shadow leading-snug bg-white border-l-8 border-blue-400" key={index}>
-							<img src={post.mainImage.asset.url} alt={post.mainImage.alt} className="w-full h-full rounded-r object-cover absolute"/>
-							<span className="block relative h-full flex justify-end items-end pr-4 pb-4">
-								<h3 className="text-gray-800 text-lg font-bold px-3 py-4 bg-red-700 text-red-100 bg-opacity-75 rounded">{post.title}</h3>
+				<h1 className="text-5xl flex justify-center cursive">My Projects</h1>
+				<h2 className="text-2xl text-gray-500 flex justify-center mt-3 mb-10">Welcome to my project page that I have contributed to.</h2>
+				<section className="grid grid-cols-1 gap-8">
+					{postData && postData.map((post, index) => (
+					<article className="relative rounded-lg shadow-lx bg-white p-16" key={index}>
+						<h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-300">
+							<a 
+							href={post.link}
+							alt={post.title}
+							target="_blank"
+							rel="noopener noreferrer"
+							>{post.title}</a>
+						</h3>
+						<div className="text-gray-500 text-xs space-x-4">
+							<span className="text-base">
+								<strong className="text-base font-bold">finished on</strong>:{" "}
+								{new Date(post.date).toLocaleDateString()}
 							</span>
-						</span>
-						</Link>
+							<p className="my-6 text-lg text-gray-700 leading-relaxed">{post.description}</p>
+							<a 
+							href={post.link} 
+							rel="noopener noreferrer" 
+							target="_blank" 
+							className="text-black-400 font-bold hover:underline hover:text-red-400 text-xl">
+								github repo{" "}
+								<span role="img" aria-label="right pointer">👈</span>
+							</a>
+						</div>
 					</article>
 					))}
-				</div>
+				</section>
 			</section>
 		</main>
 	)

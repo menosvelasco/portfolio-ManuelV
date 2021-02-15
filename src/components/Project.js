@@ -8,7 +8,6 @@ export default function Project() {
 		sanityClient.fetch(`*[_type == "project"]{
 			title,
 			date,
-			place,
 			description,
 			projectType,
 			link,
@@ -25,7 +24,7 @@ export default function Project() {
 				<h2 className="text-2xl text-gray-500 flex justify-center mt-3 mb-10">Welcome to my projects page!</h2>
 				<section className="grid grid-cols-1 gap-8">
 					{projectData && projectData.map((project, index) => (
-					<article className="relative rounded-lg shadow-lx bg-white p-16">
+					<article className="relative rounded-lg shadow-lx bg-white p-16" key={index}>
 						<h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-300">
 							<a 
 							href={project.link}
