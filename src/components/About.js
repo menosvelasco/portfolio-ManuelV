@@ -1,18 +1,18 @@
 import React, { useState, useEffect }from "react";
 import sanityClient from "../client";
 import { Route } from "react-router-dom";
+// import BlockContent from "@sanity/block-content-to-react";
 
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import BlockContent from "@sanity/block-content-to-react";
 
 export default function About() {
 	const [author, setAuthor] = useState(null);
 
 	useEffect(() => {
-		sanityClient.fetch(`*[_type == "author"][]{
+		sanityClient.fetch(`*[_type == "author"]{
 			name,
-			bio,
+			"bio": bio[0].children[0].text,
 		}`)
 		.then((data) => setAuthor(data))
 		.catch(console.error);
@@ -29,13 +29,10 @@ export default function About() {
 					<h1 className="cursive text-6xl text-blue-800 mb-8">hey there, I'm{" "}
 					<span className="text-green-800">{author.name}</span>
 					</h1>
-					<div className="text-lg flex flex-col justify-center">
-						<h1 className="cursive">
-							<span className="text-red-800">
-								<BlockContent block={author.bio} projectId="j1mrsx3j" dataset="production"/>
-							</span>
-						</h1>
-					</div>
+						<div className="text-lg flex flex-col justify-center">
+							<p className="text-black-800 text-lg">{author.bio}</p>
+						</div>
+
 					<Route>
 						<div className="inline-flex px-52 my-36">
 							<a href="http://twitter.com/Manuelv23752017" target="_blank" rel="noopener noreferrer">
