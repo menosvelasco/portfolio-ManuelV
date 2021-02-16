@@ -10,26 +10,31 @@ export default function About() {
 	const [author, setAuthor] = useState(null);
 
 	useEffect(() => {
-		sanityClient.fetch(`*[_type == "author"]{
-			Name,
-			Bio,
+		sanityClient.fetch(`*[_type == "author"][]{
+			name,
+			bio,
 		}`)
 		.then((data) => setAuthor(data))
 		.catch(console.error);
 	}, [])
 
 	if (!author) return <div>Loading...</div>;
+	console.log(author);
 
 	return (
 		<main className="relative">
 			<div className="p-10 lg:pt-39 container mx-auto relative">
+				{author && author.map((author, index) =>(
 				<section className="bg-blue-300 rounded-lg shadow-1xl lg:flex p-12">
-					<h1 className="cursive text-6xl text-blue-800 mb-8">hey there. I'm{" "}
-					<span className="text-green-800">{author.Name}</span>
+					<h1 className="cursive text-6xl text-blue-800 mb-8">hey there, I'm{" "}
+					<span className="text-green-800">{author.name}</span>
 					</h1>
 					<div className="text-lg flex flex-col justify-center">
-						Bio
-						<BlockContent block={author.Bio} projectId="j1mrsx3j" dateset="production"/>
+						<h1 className="cursive">
+							<span className="text-red-800">
+								<BlockContent block={author.bio} projectId="j1mrsx3j" dataset="production"/>
+							</span>
+						</h1>
 					</div>
 					<Route>
 						<div className="inline-flex px-52 my-36">
@@ -48,6 +53,7 @@ export default function About() {
 						</div>
 					</Route>
 				</section>
+				))}
 			</div>
 		</main>
 	);
