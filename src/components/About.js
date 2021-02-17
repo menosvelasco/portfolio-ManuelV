@@ -14,27 +14,27 @@ export default function About() {
 			name,
 			"bio": bio[0].children[0].text,
 		}`)
-		.then((data) => setAuthor(data))
+		.then((data) => setAuthor(data[0]))
 		.catch(console.error);
 	}, [])
 
 	if (!author) return <div>Loading...</div>;
-	console.log(author);
 
 	return (
 		<main className="relative">
 			<div className="p-10 lg:pt-39 container mx-auto relative">
-				{author && author.map((author, index) =>(
 				<section className="bg-blue-300 rounded-lg shadow-1xl lg:flex p-12">
-					<h1 className="cursive text-6xl text-blue-800 mb-8">hey there, I'm{" "}
-					<span className="text-green-800">{author.name}</span>
-					</h1>
-						<div className="text-lg flex flex-col justify-center">
-							<p className="text-black-800 text-lg">{author.bio}</p>
-						</div>
+
+					<div className="text-lg flex flex-col">
+						 <h1 className="cursive text-3xl text-black-300 mb-4">
+              				Hey there. I'm{" "}
+							  <span className="text-blue-600">{author.name}</span>
+						</h1>
+						<p className="text-grey-800 text-2xl">{author.bio}</p>
+					</div>
 
 					<Route>
-						<div className="inline-flex px-52 my-36">
+						<div className="inline-flex px-30 my-30">
 							<a href="http://twitter.com/Manuelv23752017" target="_blank" rel="noopener noreferrer">
 								<FaTwitter
 									className="mr-10 hover:text-blue-500"  
@@ -50,7 +50,6 @@ export default function About() {
 						</div>
 					</Route>
 				</section>
-				))}
 			</div>
 		</main>
 	);
