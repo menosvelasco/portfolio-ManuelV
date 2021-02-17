@@ -21,7 +21,6 @@ export default function OpenSourceProjects() {
 	return(
 		<main className="bg-blue-100 min-h-screen p-12 ">
 			<section className="container mx-auto">
-				<h1 className="text-5xl flex justify-center cursive">My Projects</h1>
 				<h2 className="text-2xl text-gray-500 flex justify-center mt-3 mb-10">Welcome to my project page that I have contributed to.</h2>
 				<section className="grid grid-cols-1 gap-8">
 					{postData && postData.map((post, index) => (
